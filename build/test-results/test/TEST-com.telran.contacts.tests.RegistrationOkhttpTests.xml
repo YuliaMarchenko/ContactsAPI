@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.telran.contacts.tests.RegistrationOkhttpTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-08-22T11:02:43" hostname="MacBook-Air-Yulia.local" time="1.081">
+  <properties/>
+  <testcase name="registrationNegativeTestWithInvalidPassword" classname="com.telran.contacts.tests.RegistrationOkhttpTests" time="1.081"/>
+  <system-out><![CDATA[400
+Password must contain at least one special symbol from ['$','~','-','_']!
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
