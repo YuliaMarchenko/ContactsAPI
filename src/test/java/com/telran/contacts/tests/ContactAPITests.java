@@ -48,7 +48,9 @@ public class ContactAPITests {
         Response response = Request.Post("https://contacts-telran.herokuapp.com/api/login")
                 .bodyString(gson.toJson(requestDto), ContentType.APPLICATION_JSON)
                 .execute();
+
         String responseJson = response.returnContent().asString();
+
         LoginRegResponseDto regResponseDto = gson.fromJson(responseJson, LoginRegResponseDto.class);
         System.out.println(regResponseDto);
     }

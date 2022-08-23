@@ -5,6 +5,7 @@ import com.telran.contacts.dto.AuthRequestDto;
 import com.telran.contacts.dto.ErrorDto;
 import com.telran.contacts.dto.LoginRegResponseDto;
 import okhttp3.*;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -37,6 +38,8 @@ public class ContactOkHttpTests {
 
         System.out.println(errorDto.getCode());
         System.out.println(errorDto.getMessage());
+
+        Assert.assertEquals(response.code(), 400);
     }
 
     @Test
@@ -69,5 +72,8 @@ public class ContactOkHttpTests {
             System.out.println(errorDto.getCode());
             System.out.println(errorDto.getMessage());
         }
+
+        Assert.assertTrue(response.isSuccessful());
+        Assert.assertEquals(response.code(),200);
     }
 }
