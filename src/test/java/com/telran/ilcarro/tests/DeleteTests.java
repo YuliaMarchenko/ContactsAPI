@@ -1,14 +1,12 @@
 package com.telran.ilcarro.tests;
 
-import com.jayway.restassured.RestAssured;
 import com.telran.ilcarro.helpers.UserHelper;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class DeleteTests {
+public class DeleteTests extends BaseTest{
     @BeforeMethod
     public void ensurePrecondition() {
-        RestAssured.baseURI = "https://rent-cars-app.herokuapp.com/";
         UserHelper.createUser(UserHelper.EMAIL, UserHelper.PASSWORD);
     }
 

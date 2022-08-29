@@ -1,9 +1,9 @@
 package com.telran.ilcarro.tests;
 
-import com.jayway.restassured.RestAssured;
 import com.telran.ilcarro.dto.UserBaseDto;
 import com.telran.ilcarro.helpers.AuthHelper;
 import com.telran.ilcarro.helpers.UserHelper;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -11,10 +11,9 @@ import java.util.Base64;
 
 import static com.jayway.restassured.RestAssured.given;
 
-public class UpdateTests {
+public class UpdateTests extends BaseTest{
     @BeforeMethod
     public void ensurePrecondition() {
-        RestAssured.baseURI = "https://rent-cars-app.herokuapp.com";
         UserHelper.createUser(UserHelper.EMAIL, UserHelper.PASSWORD);
     }
 
@@ -33,5 +32,10 @@ public class UpdateTests {
                 .put("user")
                 .then()
                 .assertThat().statusCode(200);
+    }
+
+    @AfterMethod
+    public void tearDown(){
+        UserHelper.deleteUser(UserHelper.EMAIL, UserHelper.PASSWORD);
     }
 }

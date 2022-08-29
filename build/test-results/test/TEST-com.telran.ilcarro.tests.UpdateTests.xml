@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.telran.ilcarro.tests.UpdateTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-08-29T19:00:02" hostname="MacBook-Air-Yulia.local" time="1.017">
+<testsuite name="com.telran.ilcarro.tests.UpdateTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-08-29T19:17:23" hostname="MacBook-Air-Yulia.local" time="1.055">
   <properties/>
-  <testcase name="updatePasswordPositiveTest" classname="com.telran.ilcarro.tests.UpdateTests" time="1.017"/>
+  <testcase name="updatePasswordPositiveTest" classname="com.telran.ilcarro.tests.UpdateTests" time="1.055"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

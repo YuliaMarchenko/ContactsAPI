@@ -7,7 +7,7 @@ import com.telran.ilcarro.dto.RegistrationDto;
 import static com.jayway.restassured.RestAssured.given;
 
 public class UserHelper {
-    public static final String EMAIL = "test1016@test.test";
+    public static final String EMAIL = "test1017@test.test";
     public static final String PASSWORD =  "testTEST121";
 
     public static Response deleteUser(String email, String password){
