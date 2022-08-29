@@ -9,7 +9,7 @@ import lombok.*;
 @ToString
 @Builder
 
-public class AuthRequestDto {
+public class RegistrationDto {
     String first_name;
     String second_name;
 }
