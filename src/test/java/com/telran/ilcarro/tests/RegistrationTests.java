@@ -1,7 +1,7 @@
 package com.telran.ilcarro.tests;
 
 import com.jayway.restassured.RestAssured;
-import com.telran.ilcarro.dto.RegistrationDto;
+import com.telran.ilcarro.dto.AuthRequestDto;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -17,39 +17,33 @@ public class RegistrationTests {
 
     @Test
     public void registrationPositiveTest() {
-        RegistrationDto requestDto = RegistrationDto.builder()
+        AuthRequestDto requestDto = AuthRequestDto.builder()
                 .first_name("Test")
                 .second_name("Testovich")
                 .build();
 
-        String response = given()
-                .contentType("application/json")
+        given().contentType("application/json")
                 .header("Authorization", "Basic " + Base64.getEncoder().encodeToString("test1006@test.com:testTEST121".getBytes()))
                 .body(requestDto)
                 .post("registration")
                 .then()
                 .assertThat().statusCode(200)
                 .extract().body().asString();
-        System.out.println(response);
-
     }
 
     @Test
     public void registrationSecondTimeNegativeTest() {
-        RegistrationDto requestDto = RegistrationDto.builder()
+        AuthRequestDto requestDto = AuthRequestDto.builder()
                 .first_name("Test")
                 .second_name("Testovich")
                 .build();
 
-        String response = given()
-                .contentType("application/json")
+        given().contentType("application/json")
                 .header("Authorization", "Basic " + Base64.getEncoder().encodeToString("test1006@test.com:testTEST121".getBytes()))
                 .body(requestDto)
                 .post("registration")
                 .then()
                 .assertThat().statusCode(409)
                 .extract().body().asString();
-        System.out.println(response);
-
     }
 }

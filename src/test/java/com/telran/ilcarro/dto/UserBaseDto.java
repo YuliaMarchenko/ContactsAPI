@@ -9,9 +9,8 @@ import lombok.*;
 @ToString
 @Builder
 
-public class RegistrationDto {
+public class UserBaseDto {
     String first_name;
+    String photo;
     String second_name;
 }
-
-
