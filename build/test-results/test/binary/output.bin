@@ -1,1 +1,1 @@
-‹{"first_name":"Test","second_name":"Testovich","registration_date":"2022-08-29","comments":[],"own_cars":[],"booked_cars":[],"history":[]}
+|{"timestamp":"2022-08-29T14:11:35.292+0000","status":409,"error":"Conflict","message":"User exists","path":"/registration"}
