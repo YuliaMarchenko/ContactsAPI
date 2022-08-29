@@ -1,22 +1,29 @@
 package com.telran.ilcarro.helpers;
 
-import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.response.Response;
 import com.telran.ilcarro.dto.RegistrationDto;
+import com.telran.ilcarro.dto.UserBaseDto;
+
+import java.util.Base64;
 
 import static com.jayway.restassured.RestAssured.given;
 
 public class UserHelper {
-    public static final String EMAIL = "test1017@test.test";
-    public static final String PASSWORD =  "testTEST121";
+    private String email;
+    private String password;
 
-    public static Response deleteUser(String email, String password){
+    public UserHelper() {
+        this.email = "test" + System.currentTimeMillis() + "@test.test";
+        this.password = "testTEST121";
+    }
+
+    public Response deleteUser(){
         return given().contentType("application/json")
                 .header("Authorization", AuthHelper.basicAuth(email, password))
                 .delete("user");
     }
 
-    public static Response createUser(String email, String password){
+    public Response createUser(){
             RegistrationDto requestDto = RegistrationDto.builder()
                     .first_name("Test")
                     .second_name("Testovich")
@@ -26,5 +33,19 @@ public class UserHelper {
                     .header("Authorization", AuthHelper.basicAuth(email, password))
                     .body(requestDto)
                     .post("registration");
+    }
+
+    public Response updateUser(){
+        UserBaseDto userBaseDto = UserBaseDto.builder()
+                .first_name("Test")
+                .photo("gfhkggh")
+                .second_name("Testovich")
+                .build();
+
+        return  given().contentType("application/json")
+                .header("Authorization", AuthHelper.basicAuth(email, password))
+                .header("X-New-Password", "Basic " + Base64.getEncoder().encodeToString("test1009@test.com:testTEST123".getBytes()))
+                .body(userBaseDto)
+                .put("user");
     }
 }
