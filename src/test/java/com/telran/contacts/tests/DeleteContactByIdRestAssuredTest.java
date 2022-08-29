@@ -9,8 +9,8 @@ import static com.jayway.restassured.RestAssured.given;
 
 public class DeleteContactByIdRestAssuredTest {
 
-    String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InRlc3QxMDJAdGVzdC5jb20ifQ.Npf-xrwHZC21Ls2iIKzby8HeAxZTTN5u90-rXJc8O_w";
-    int id;
+    private String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InRlc3QxMDJAdGVzdC5jb20ifQ.Npf-xrwHZC21Ls2iIKzby8HeAxZTTN5u90-rXJc8O_w";
+    private int id;
 
     @BeforeMethod
     public void ensurePrecondition(){
@@ -35,8 +35,6 @@ public class DeleteContactByIdRestAssuredTest {
                 .then()
                 .assertThat().statusCode(200)
                 .extract().path("id");
-
-        id = contactDto.getId();
     }
 
     @Test
